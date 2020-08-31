@@ -1,3 +1,6 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 class HomeWork2_13{
 	public static void main(String[] args){
 	/*2.13 (Financial application: compound value) 
@@ -10,6 +13,7 @@ class HomeWork2_13{
 	(In Exercise 5.30, you will use a loop to simplify the code and display the account value for any month.) 
 	Enter the monthly saving amount: 100. After the sixth month, the account value is $608.81*/
 
+/*
 	double monthlyInterest = 0.05/12;
 	double monthlySaving = 100;
 
@@ -30,7 +34,36 @@ class HomeWork2_13{
 
 	double monthSix = ((monthlySaving + monthFive)*(1 + monthlyInterest));
 	System.out.println(monthSix);
+*/
 
+	Scanner input = new Scanner(System.in);
+	DecimalFormat df = new DecimalFormat("####.###");
 
+	double month = 1;
+	double monthlyTotal = 0;
+	double previousMonthlyTotal = 0;
+
+	//Monyhly Input
+	System.out.print("Amount deposited per month : ");
+	double monthlyInput = input.nextDouble();
+
+	//How much Interest
+	System.out.print("Monthly Interest (in percentage) : ");
+	double interestAmount = input.nextDouble();
+
+	//How many months?
+	System.out.print("How many months you want to calculate : ");
+	double totalMonths = input.nextDouble();
+
+	double interest = 1 + ((interestAmount/100)/12);
+
+	//With a loop
+	while(month <= totalMonths){
+	monthlyTotal = (monthlyInput + previousMonthlyTotal) * interest;
+	previousMonthlyTotal = monthlyTotal;
+	System.out.println("Month " + month + " = $" + (df.format(monthlyTotal)));
+	month ++;
+
+	}
 	}
 }
