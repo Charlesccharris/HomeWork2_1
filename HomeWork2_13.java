@@ -48,7 +48,7 @@ class HomeWork2_13{
 	double monthlyInput = input.nextDouble();
 
 	//How much Interest
-	System.out.print("Monthly Interest (in percentage) : ");
+	System.out.print("Annual Interest Rate (in percentage) : ");
 	double interestAmount = input.nextDouble();
 
 	//How many months?
